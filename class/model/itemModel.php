@@ -11,4 +11,12 @@ class itemModel
 	public string $category; 
 	public string $guid; 
 	
+	public function toArray(){ 
+		$array = [];
+		foreach (get_class_vars(static::class) as  $name => $value) {
+			$array[$name] = $value; 
+		}
+		return $array;
+	}
+	
 }

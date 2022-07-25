@@ -3,10 +3,13 @@
 
 {% block content %}
 <h1>{{ $title }}</h1>
-<p>Welcome to the home page, list of colors:</p>
 <ul>
-    {% foreach($colors as $color): %}
-    <li>{{ $color }}</li>
+    {% foreach($feeds as $feedKey => $feed): %}
+    <li>{{ $feedKey }} -
+        {% foreach($resposeTypes as $type): %}
+            <a href="/{{ $feedKey }}/{{ $type }}/">{{ $type }}</a>&nbsp;
+        {% endforeach; %}
+    </li>
     {% endforeach; %}
 </ul>
 {% endblock %}

@@ -18,11 +18,22 @@ class config
 	}
 
 	/**
-	 * @return array
+	 * @param $section
+	 * @param $var
+	 * @param $key
+	 *
+	 * @return mixed
 	 */
-	public function get($section, $var=null): bool|array
+	public function get($section, $var=null, $key=null): mixed
 	{
-		return $var !== null ? $this->data[$section][$var] : $this->data[$section];
+		if($var and $key ){
+			$result = $this->data[$section][$var][$key]; 
+		}elseif ($var and !$key){
+			$result =  $this->data[$section][$var];
+		}else {
+			$result = $this->data[$section];
+		}
+		return $result;
 	}
 	
 }

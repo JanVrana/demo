@@ -1,0 +1,11 @@
+{% extends templates/layout.html %}
+{% block title %}{{ $title }}{% endblock %}
+
+{% block content %}
+<h1>{{ $title }}</h1>
+    {% foreach($items as $item): %}
+    <h2><a href="{{ $item->link }}">{{ $item->title }}</a></h2>      
+    <blockquote>{{ $item->description }}</blockquote>
+    <hr>
+    {% endforeach; %}
+{% endblock %}
