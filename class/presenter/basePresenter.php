@@ -4,7 +4,14 @@ namespace presenter;
 
 use tools\config;
 
-class basePresenter
+/**
+ * Base Presenter
+ */
+class basePresenter implements presenterInterface
 {
+	/**
+	 * Con
+	 * @var \tools\config
+	 */
 	public config $config;
 }

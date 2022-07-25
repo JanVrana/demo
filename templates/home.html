@@ -2,14 +2,29 @@
 {% block title %}{{ $title }}{% endblock %}
 
 {% block content %}
-<h1>{{ $title }}</h1>
-<ul>
-    {% foreach($feeds as $feedKey => $feed): %}
-    <li>{{ $feedKey }} -
-        {% foreach($resposeTypes as $type): %}
-            <a href="/{{ $feedKey }}/{{ $type }}/">{{ $type }}</a>&nbsp;
+<div class="container">
+<div class="col-12">
+    <h1>{{ $title }}</h1>
+    <ul>
+        {% foreach($feeds as $feedKey => $feed): %}
+        <li>{{ $feedKey }} -
+            {% foreach($resposeTypes as $type): %}
+                <a href="/{{ $feedKey }}/{{ $type }}/">{{ $type }}</a>&nbsp;
+            {% endforeach; %}
+        </li>
         {% endforeach; %}
-    </li>
-    {% endforeach; %}
-</ul>
+    </ul>
+</div>
+    <div id="response" class="col-12"></div>
+</div>
+
+<script type="text/javascript">
+   $(document).ready(function() {
+        $("a").on("click", function(event){
+            event.preventDefault();
+            $("#response").load($(this).attr("href"));
+            return false;
+        });
+    });
+</script>
 {% endblock %}

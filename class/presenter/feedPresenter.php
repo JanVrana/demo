@@ -30,4 +30,5 @@ class feedPresenter extends basePresenter
 		$res = new $responseClass($itemModel);
 		$res->view();
 	}
+	
 }
