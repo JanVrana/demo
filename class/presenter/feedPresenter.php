@@ -5,7 +5,7 @@ use response;
 use reader;
 
 /**
- *
+ * feed presenter
  */
 class feedPresenter extends basePresenter
 {
