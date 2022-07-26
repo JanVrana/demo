@@ -7,10 +7,10 @@ use tools\config;
 /**
  * Base Presenter
  */
-class basePresenter implements presenterInterface
+abstract class basePresenter implements presenterInterface
 {
 	/**
-	 * Con
+	 * Config object
 	 * @var \tools\config
 	 */
 	public config $config;

@@ -4,14 +4,25 @@ namespace presenter;
 use response;
 use reader;
 
+/**
+ *
+ */
 class feedPresenter extends basePresenter
 {
+	/**
+	 * @var string feed name
+	 */
 	public string $feed;
+	
+	/**
+	 * @var string response type
+	 */
 	public string $responseType;
 
 	/**
-	 * @param string $feed
-	 * @param string $responseType
+	 * Constructor
+	 * @param string $feed feed name
+	 * @param string $responseType response type
 	 */
 	public function __construct(string $feed, string $responseType)
 	{
@@ -20,6 +31,10 @@ class feedPresenter extends basePresenter
 	}
 
 
+	/**
+	 * Render presenter
+	 * @return void
+	 */
 	public function show(){
 		$url = $this->config->get("feed", $this->feed, "url");
 		$readerClass = "reader\\".$this->config->get("feed", $this->feed, "type")."Reader";
