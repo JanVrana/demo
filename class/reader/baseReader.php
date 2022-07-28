@@ -2,23 +2,25 @@
 
 namespace reader;
 
-class baseReader
+/**
+ * abstract class of readers
+ */
+abstract class baseReader implements readerInterface
 {
-	protected $data;
+	/**
+	 * @var string - loaded data
+	 */
+	protected string $data;
 
-	public function __construct()
+	/**
+	 * source loading function
+	 *
+	 * @param $sourceFile - URL or Filename
+	 *
+	 * @return void
+	 */
+	public function load($sourceFile): void
 	{
-		;
-	}
-
-	public function load($sourceFile){
-		$curl = curl_init($sourceFile);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_HEADER, false);
-
-		$this->data = curl_exec($curl);
-
-		curl_close($curl);
-
+		$this->data = file_get_contents($sourceFile);
 	}
 }

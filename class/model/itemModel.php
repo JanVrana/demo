@@ -41,7 +41,7 @@ class itemModel
 	 * converts the object to an array
 	 * @return array 
 	 */
-	public function toArray(){ 
+	public function toArray(): array{ 
 		$array = [];
 		foreach (get_class_vars(static::class) as  $name => $value) {
 			$array[$name] = $value; 

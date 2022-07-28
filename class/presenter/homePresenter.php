@@ -14,11 +14,12 @@ class homePresenter extends basePresenter
 	 *  Render home page
 	 * @return void
 	 */
-	public function show(){
-		
+	public function show(): void
+	{
+
 		$feeds = $this->config->get("feed");
 		$resposeTypes = ['json', 'html', 'markdown'];
-		
+
 		Template::view('templates/home.html', [
 			'title' => "Trasformace kanálů",
 			'feeds' => $feeds,

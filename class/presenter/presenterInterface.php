@@ -9,7 +9,7 @@ interface presenterInterface
 {
 	/**
 	 * sends the output to the presenter
-	 * @return mixed
+	 * @return void
 	 */
-	public function show();
+	public function show(): void;
 }

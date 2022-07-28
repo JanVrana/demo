@@ -2,16 +2,24 @@
 
 namespace response;
 
+/**
+ * Markdown Response
+ */
 class markdownResponse extends baseResponse
 {
-	public function view(){
+
+	/**
+	 * views the markdown response TODO: refaktoring using template, inherit from HTML respose
+	 * @return void
+	 */
+	public function view(): void
+	{
 		foreach ($this->itemModel as $item) {
 			echo "<pre>";
-			echo "## [".$item->title."](".$item->link.")\n";
-			echo "> ".$item->description."\n";
+			echo "## [" . $item->title . "](" . $item->link . ")\n";
+			echo "> " . $item->description . "\n";
 			echo "</pre>";
-			//var_dump($item);
 		}
 	}
-	
+
 }
