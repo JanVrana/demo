@@ -1,15 +1,16 @@
-# Demo konverzní mikrosluby
+# Demo konverznÃ­ mikrosluÅ¾by
 
-Demo objektového navrhu mikrosluby která dokáe naèítat data z rùznıch zdrojù.
+Demo objektovÃ©ho navrhu mikrosluÅ¾by kterÃ¡ dokÃ¡Å¾e naÄÃ­tat data z rÅ¯znÃ½ch zdrojÅ¯
+a konvertovat do nÄ›kolika ruznÃ½ch odpovÄ›dÃ­.
 
-### Nastavení
-Zdroje se nastavují v __/etc/settings.ini__ v sekci __feeds__
+### NastavenÃ­
+Zdroje se nastavujÃ­ v __/etc/settings.ini__ v sekci __feeds__
 - **nazevFeedu[url]** - url zdroje
-- **nazevFeedu[type]** - nazev readeru - tøída reader/nazevReader
+- **nazevFeedu[type]** - nazev readeru - tÅ™Ã­da reader/nazevReader
 
-### Ètení dat
-je potøeba zavolat url v nasledujícím formátu
+### ÄŒtenÃ­ dat
+je potÅ™eba zavolat url v nasledujÃ­cÃ­m formÃ¡tu
 **http://server/nazevFeedu/nazevReaderu**
 
 ### Poznamka
-Pro produkèní prostøedi by bylo tøeba doplnit cachování.
+Pro produkÄnÃ­ prostÅ™edi by bylo tÅ™eba doplnit cachovÃ¡nÃ­.

@@ -5,24 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>{{ $title }}</h1>
-            <div id="manual">
-Demo objektového navrhu mikroslužby která dokáže načítat data z různých zdrojů.
-                
-### Nastavení
-Zdroje se nastavují v __/etc/settings.ini__ v sekci __feeds__
-- **nazevFeedu[url]** - url zdroje
-- **nazevFeedu[type]** - nazev readeru - třída reader/nazevReader
-
-### Čtení dat 
-je potřeba zavolat url v nasledujícím formátu
-**http://server/nazevFeedu/nazevReaderu**
-                
-### Poznamka 
-Pro produkční prostředi by bylo třeba doplnit cachování.
- 
-                
-            </div>
+            <div id="manual">{% include README.md %}</div>
             <h3>příklady</h3>
             <ul>
                 {% foreach($feeds as $feedKey => $feed): %}
@@ -36,7 +19,8 @@ Pro produkční prostředi by bylo třeba doplnit cachování.
         </div>
     </div>
     <div class="row" id="head">
-        <div class="col-6"><h2>Přijatá data</h2></div>
+        <div class="col-2"><h2>Přijatá data</h2></div>
+        <div class="col-4" id="requestUrl" ></div>
         <div class="col-6"><h2>Lidem čitelná podoba</h2></div>
     </div>
     <div class="row">
@@ -51,8 +35,10 @@ Pro produkční prostředi by bylo třeba doplnit cachování.
         $('#manual').html(converter.makeHtml($('#manual').html()));
         $("a").on("click", function (event) {
             event.preventDefault();
+            var requestUrl = $(this).attr("href");
+            $("#requestUrl").text(requestUrl);
             var responseType = $(this).data("type");
-            $.getScript($(this).attr("href"),
+            $.getScript(requestUrl,
                 function (response) {
                     $("#response").text(response);
                     console.log(responseType);
