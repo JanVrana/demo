@@ -3,11 +3,26 @@
 const CLASSDIR = "./class/";
 /** path to settings.ini */
 const CONFIG_PATH = "./etc/settings.ini";
-include "debug.php";
+//include "debug.php";
 
 
 use tools\{router, config};
 use reader\rssReader;
+
+/**
+ * Print $exception 
+ * @param  \Exception $exception; - Exception 
+ *
+ * @return void
+ */
+function exception_handler($exception) {
+	echo "Error: " , $exception->getMessage();
+}
+
+/**
+ * Register exception handler
+ */
+set_exception_handler('exception_handler');
 
 /**
  * autoload class registration
@@ -20,10 +35,12 @@ spl_autoload_register(function ($class_name) {
 		require $file;
 		return true;
 	} else {
-		vrDump("error include file '$file'", 'error include file');
+		throw new \Exception ("error include file '$file' ");
 		return false;
 	}
 });
+
+
 
 
 $config = new config(CONFIG_PATH);

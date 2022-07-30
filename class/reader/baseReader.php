@@ -21,6 +21,10 @@ abstract class baseReader implements readerInterface
 	 */
 	public function load($sourceFile): void
 	{
-		$this->data = file_get_contents($sourceFile);
+		$this->data = @file_get_contents($sourceFile);	
+		if(!$this->data){
+			throw new \RuntimeException('unable to load feed: '.$sourceFile);			
+		}
+		
 	}
 }

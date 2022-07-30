@@ -2,6 +2,7 @@
 
 namespace presenter;
 
+use mysql_xdevapi\Exception;
 use response;
 use reader;
 
@@ -41,7 +42,11 @@ class feedPresenter extends basePresenter
 	{
 		$url = $this->config->get("feed", $this->feed, "url");
 		$readerClass = "reader\\" . $this->config->get("feed", $this->feed, "type") . "Reader";
-		$reader = new $readerClass();
+		try{
+			$reader = new $readerClass();
+		}catch (\Exception $e){
+			throw new \RuntimeException('unable to load reader: '.$readerClass);
+		}
 		$reader->load($url);
 		$itemModel = $reader->parse();
 		$responseClass = "response\\" . $this->responseType . "Response";
