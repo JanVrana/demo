@@ -3,28 +3,62 @@
 
 {% block content %}
 <div class="container">
-<div class="col-12">
-    <h1>{{ $title }}</h1>
-    <ul>
-        {% foreach($feeds as $feedKey => $feed): %}
-        <li>{{ $feedKey }} -
-            {% foreach($resposeTypes as $type): %}
-                <a href="/{{ $feedKey }}/{{ $type }}/">{{ $type }}</a>&nbsp;
-            {% endforeach; %}
-        </li>
-        {% endforeach; %}
-    </ul>
-</div>
-    <div id="response" class="col-12"></div>
+    <div class="row">
+        <div class="col-12">
+            <h1>{{ $title }}</h1>
+            <ul>
+                {% foreach($feeds as $feedKey => $feed): %}
+                <li>{{ $feedKey }} -
+                    {% foreach($resposeTypes as $type): %}
+                    <a href="/{{ $feedKey }}/{{ $type }}/" data-type="{{ $type }}">{{ $type }}</a>&nbsp;
+                    {% endforeach; %}
+                </li>
+                {% endforeach; %}
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="head">
+        <div class="col-6"><h2>Přijatá data</h2></div>
+        <div class="col-6"><h2>Lidem čitelná podoba</h2></div>
+    </div>
+    <div class="row">
+        <div id="response" class="col-6"></div>
+        <div id="responseHuman" class="col-6"></div>
+    </div>
 </div>
 
 <script type="text/javascript">
-   $(document).ready(function() {
-        $("a").on("click", function(event){
+    $(document).ready(function () {
+        $("a").on("click", function (event) {
             event.preventDefault();
-            $("#response").load($(this).attr("href"));
+            var responseType = $(this).data("type");
+            $.getScript($(this).attr("href"),
+                function (response) {
+                    $("#response").text(response);
+                    console.log(responseType);
+                    //console.log("content:" + response);
+                    switch (responseType) {
+                        case('json'):
+                            var objResponse = $.parseJSON(response);                            
+                            $("#responseHuman").jsonViewer(objResponse, {collapsed: false, withQuotes: false, withLinks: true});
+                            break;
+                        case('html'):
+                            $("#responseHuman").html(response);
+                            break;
+                        case('markdown'):
+                            var converter = new showdown.Converter();
+                            var html      = converter.makeHtml(response);
+                            $("#responseHuman").html(html);
+                            break;
+                        default:
+                            console.log('Bad responseType: ' + responseType);
+                    }
+                }
+            );
             return false;
         });
+
+
     });
 </script>
 {% endblock %}

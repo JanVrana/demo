@@ -21,7 +21,7 @@ class homePresenter extends basePresenter
 		$resposeTypes = ['json', 'html', 'markdown'];
 
 		Template::view('templates/home.html', [
-			'title' => "Trasformace kanálů",
+			'title' => "Demo konverzní mikroslužby ",
 			'feeds' => $feeds,
 			'resposeTypes' => $resposeTypes
 		]);

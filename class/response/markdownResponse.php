@@ -15,10 +15,8 @@ class markdownResponse extends baseResponse
 	public function view(): void
 	{
 		foreach ($this->itemModel as $item) {
-			echo "<pre>";
 			echo "## [" . $item->title . "](" . $item->link . ")\n";
-			echo "> " . $item->description . "\n";
-			echo "</pre>";
+			echo "> " . $item->description . "\n\n";
 		}
 	}
 
