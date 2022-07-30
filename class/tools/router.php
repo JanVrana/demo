@@ -19,7 +19,7 @@ class router
 	 *
 	 * @return \presenter\presenterInterface
 	 */
-	public static function getPresenter(config $config): presenterInterface
+	public static function getPresenter(config $config): presenterInterface|null
 	{
 		try {
 			$requestPath = parse_url($_SERVER['REQUEST_URI'])['path'];
@@ -36,6 +36,7 @@ class router
 			return $presenter;
 		} catch (\Exception $e) {
 			echo "cat:".$e->getMessage();
+			return null;
 		}
 	}
 
