@@ -1,3 +1,7 @@
+## README Translation
+- [English](README.md)
+- [Czech](README.cz.md)
+
 # Demo of conversion microservice
 
 Demo of an object-based microservice design that can read data from different sources and convert it into several different responses.
