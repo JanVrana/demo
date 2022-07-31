@@ -20,7 +20,7 @@ class homePresenter extends basePresenter
 		$feeds = $this->config->get("feed");
 		$resposeTypes = ['json', 'html', 'markdown'];
 
-		Template::view('templates/home.html', [
+		Template::view('../app/templates/home.html', [
 			'title' => "Demo konverzní mikroslužby ",
 			'feeds' => $feeds,
 			'resposeTypes' => $resposeTypes

@@ -1,8 +1,8 @@
 <?php
 /** path to class directory */
-const CLASSDIR = "./class/";
+const CLASSDIR = "../app/class/";
 /** path to settings.ini */
-const CONFIG_PATH = "./etc/settings.ini";
+const CONFIG_PATH = "../etc/settings.ini";
 //include "debug.php";
 
 

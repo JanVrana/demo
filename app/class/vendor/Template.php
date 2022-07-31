@@ -10,7 +10,7 @@ class Template
 {
 
 	static $blocks = array();
-	static $cache_path = 'cache/';
+	static $cache_path = '../../cache/';
 	static $cache_enabled = FALSE;
 
 	static function view($file, $data = array())

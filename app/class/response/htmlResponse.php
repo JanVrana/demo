@@ -13,7 +13,7 @@ class htmlResponse extends baseResponse
 	 * path to template file
 	 * @var string
 	 */
-	public string $templatePath = 'templates/htmlResponse.html';
+	public string $templatePath = '../app/templates/htmlResponse.html';
 
 	/**
 	 * views the HTML response

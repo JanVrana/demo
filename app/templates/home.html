@@ -1,11 +1,11 @@
-{% extends templates/layout.html %}
+{% extends ../app/templates/layout.html %}
 {% block title %}{{ $title }}{% endblock %}
 
 {% block content %}
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <div id="manual">{% include README.md %}</div>
+            <div id="manual">{% include ../README.cz.md %}</div>
             <h3>příklady</h3>
             <ul>
                 {% foreach($feeds as $feedKey => $feed): %}
