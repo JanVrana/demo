@@ -19,7 +19,10 @@ Pro produkční prostředi by bylo třeba doplnit cachování.
 ### Spuštění aplikace v Dockeru
 v root adresaří aplikace spustit příkazy:
 
-    `docker build -t vrana-demo:latest .`
-    `docker run -d -p 3001:80  vrana-demo:latest`
+```bash 
+    docker build -t vrana-demo:latest .
+    docker run -d -p 3001:80 vrana-demo:latest
+```
+
  po spuštění je aplikace dostupná na adrese:
     http://localhost:3001/

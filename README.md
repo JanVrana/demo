@@ -24,8 +24,10 @@ Caching would need to be added for production environments.
 ### Running an application in Docker
 in the root of the application to run the commands:
 
-    `docker build -t vrana-demo:latest .`
-    `docker run -d -p 3001:80 vrana-demo:latest`
+```bash 
+    docker build -t vrana-demo:latest .
+    docker run -d -p 3001:80 vrana-demo:latest
+```
 
 After running, the application is available at:
 http://localhost:3001/
