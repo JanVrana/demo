@@ -16,8 +16,19 @@ Sources are set in /etc/settings.ini in the feeds section
 ### Reading data
 
 you need to call the url in the following format 
-**http://server/nazevFeedu/nazevReaderu**
+**http://server/feedName/readerName**
 
 ### Note
 Caching would need to be added for production environments.
-README.cz.mdTranslated with www.DeepL.com/Translator (free version)
+
+### Running an application in Docker
+in the root of the application to run the commands:
+
+    `docker build -t vrana-demo:latest .`
+    `docker run -d -p 3001:80 vrana-demo:latest`
+
+After running, the application is available at:
+http://localhost:3001/
+
+
+*Translated with www.DeepL.com/Translator (free version)*
