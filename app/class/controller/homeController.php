@@ -1,13 +1,13 @@
 <?php
 
-namespace presenter;
+namespace controller;
 
 use vendor\Template;
 
 /**
- * Home page presenter
+ * Home page Controller
  */
-class homePresenter extends basePresenter
+class homeController extends baseController
 {
 
 	/**

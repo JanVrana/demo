@@ -44,6 +44,6 @@ spl_autoload_register(function ($class_name) {
 
 
 $config = new config(CONFIG_PATH);
-$presenter = router::getPresenter($config);
-$presenter->show();
+$controller = router::getController($config);
+$controller->show();
 

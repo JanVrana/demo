@@ -2,9 +2,9 @@
 
 namespace tools;
 
-use presenter\feedPresenter;
-use presenter\homePresenter;
-use presenter\presenterInterface;
+use controller\feedController;
+use controller\homeController;
+use controller\controllerInterface;
 
 /**
  * URL router class
@@ -17,9 +17,9 @@ class router
 	 *
 	 * @param config $config - config object
 	 *
-	 * @return \presenter\presenterInterface
+	 * @return \controller\controllerInterface
 	 */
-	public static function getPresenter(config $config): presenterInterface|null
+	public static function getController(config $config): controllerInterface|null
 	{
 		try {
 			$requestPath = parse_url($_SERVER['REQUEST_URI'])['path'];
@@ -27,13 +27,13 @@ class router
 			if ($matches[1]) {
 				$feed = $matches[1];
 				$resposeType = $matches[2];
-				$presenter = new feedPresenter($feed, $resposeType);
+				$controller = new feedController($feed, $resposeType);
 
 			} else {
-				$presenter = new homePresenter();
+				$controller = new homeController();
 			}
-			$presenter->config = $config;
-			return $presenter;
+			$controller->config = $config;
+			return $controller;
 		} catch (\Exception $e) {
 			echo "cat:".$e->getMessage();
 			return null;

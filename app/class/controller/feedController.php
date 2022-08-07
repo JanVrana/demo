@@ -1,15 +1,15 @@
 <?php
 
-namespace presenter;
+namespace controller;
 
 use mysql_xdevapi\Exception;
 use response;
 use reader;
 
 /**
- * feed presenter
+ * feed Controller
  */
-class feedPresenter extends basePresenter
+class feedController extends baseController
 {
 	/**
 	 * @var string feed name

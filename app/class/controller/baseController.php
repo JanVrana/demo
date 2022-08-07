@@ -1,13 +1,13 @@
 <?php
 
-namespace presenter;
+namespace controller;
 
 use tools\config;
 
 /**
- * Base Presenter
+ * Base Controller
  */
-abstract class basePresenter implements presenterInterface
+abstract class baseController implements controllerInterface
 {
 	/**
 	 * Config object
